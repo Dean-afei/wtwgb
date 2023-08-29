@@ -14,8 +14,9 @@ const ANWSER =
 
 export default function Home() {
   const [text, setText] = useState(""); // 逐字添加的文本
-  const [fullText, setFullText] = useState(ANWSER); // 完整文本
+  // const [fullText, setFullText] = useState(ANWSER); // 完整文本
   const [currentIndex, setCurrentIndex] = useState(0); // 当前字符的索引
+  const [printingQuestion, setPrintingQuestion] = useState(true);
   const [question, setQuestion] = useState("");
   const [fullQuestion, setFullQuestion] = useState(QUESTION);
   const [currentQIndex, setCurrentQIndex] = useState(0);
@@ -23,16 +24,25 @@ export default function Home() {
   const audioRef = useRef<any>();
 
   useEffect(() => {
+    const textToPrint = printingQuestion ? QUESTION : ANWSER;
+
     const timer = setTimeout(() => {
-      if (currentIndex < fullText.length) {
-        setText((prevText) => prevText + fullText.charAt(currentIndex));
+      if (currentIndex < textToPrint.length) {
+        setText((prevText) => prevText + textToPrint.charAt(currentIndex));
         setCurrentIndex((prevIndex) => prevIndex + 1);
       } else {
         clearTimeout(timer);
+        // 当打印完成问题时，切换到打印答案
+        if (printingQuestion) {
+          setPrintingQuestion(false);
+          setCurrentIndex(0);
+          setText("");
+        }
       }
     }, 100);
+
     return () => clearTimeout(timer);
-  }, [currentIndex, fullText]);
+  }, [currentIndex, printingQuestion]);
 
   useEffect(() => {
     const audioElement = audioRef.current;
