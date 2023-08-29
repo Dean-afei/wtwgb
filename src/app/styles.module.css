@@ -1,13 +1,18 @@
 .indexPage {
   /* background-image: url('../../public/background.jpg'); */
   height: 100vh;
-  /* color: rgba(255, 255, 255, 0.9); */
   padding: 20px;
+  position: relative;
 }
 
 .contentWrap {
-  /* display: flex;
-    align-items: center; */
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
 }
 
 .player {
@@ -21,16 +26,19 @@
   width: fit-content;
   padding: 0 10px;
   margin-bottom: 20px;
+  align-self: center;
+}
+
+.theQuestioner {
+  margin-bottom: 5px;
 }
 
 .theAnwser {
   min-height: 500px;
-  width: 350px;
   line-height: 1.5;
-  /* background-color: rgba(0, 0, 0, 0.1); */
 }
 
-.answerer {
+.participants {
   display: contents;
   font-weight: 700;
 }
