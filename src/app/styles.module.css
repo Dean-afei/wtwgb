@@ -1,0 +1,36 @@
+.indexPage {
+  /* background-image: url('../../public/background.jpg'); */
+  height: 100vh;
+  /* color: rgba(255, 255, 255, 0.9); */
+  padding: 20px;
+}
+
+.contentWrap {
+  /* display: flex;
+    align-items: center; */
+}
+
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 30px;
+  height: 50px;
+  width: fit-content;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.theAnwser {
+  min-height: 500px;
+  width: 350px;
+  line-height: 1.5;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+}
+
+.answerer {
+  display: contents;
+  font-weight: 700;
+}
